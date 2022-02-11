@@ -1,0 +1,64 @@
+<queries>
+    <sql id="get_movie_by_id" paramType="java.lang.Integer">
+        <![CDATA[
+        SELECT title FROM sakila.film WHERE film_id = ${value};
+        ]]>
+    </sql>
+
+    <sql id="get_all_actors" paramType="">
+        <![CDATA[
+        SELECT * FROM sakila.actor;
+        ]]>
+    </sql>
+    <sql id="get_actors_with_ids" paramType="[I">
+        <![CDATA[
+        SELECT * FROM `sakila`.`actor` where actor_id IN ${value};
+        ]]>
+    </sql>
+
+    <sql id="get_actors_by_first_name" paramType="java.lang.String">
+        <![CDATA[
+        SELECT * FROM `sakila`.`actor` WHERE first_name = ${value};
+        ]]>
+    </sql>
+
+    <sql id="get_actors_with_ids_al" paramType="java.util.ArrayList">
+        <![CDATA[
+        SELECT * FROM `sakila`.`actor` where actor_id IN ${value};
+        ]]>
+    </sql>
+
+
+    <sql id="get_actor_using_obj" paramType="assignment_1.Actor">
+        <![CDATA[
+        SELECT * FROM `sakila`.`actor` where actor_id = ${actor_id} and first_name = ${first_name};
+        ]]>
+    </sql>
+
+    <sql id="get_actors_with_firstname_al" paramType="java.util.ArrayList">
+        <![CDATA[
+        SELECT * FROM `sakila`.`actor` where first_name IN ${value};
+        ]]>
+    </sql>
+
+    <sql id="update_actor_last_name" paramType="assignment_1.Actor">
+        <![CDATA[
+        UPDATE sakila.actor SET last_name = ${last_name} WHERE actor_id = ${actor_id};
+        ]]>
+    </sql>
+
+    <sql id="insert" paramType="assignment_1.Actor">
+        <![CDATA[
+        INSERT INTO sakila.actor (`actor_id`,`first_name`,`last_name`, `last_update`) VALUES (${actor_id}, ${first_name}, ${last_name}, ${last_update});
+        ]]>
+    </sql>
+
+    <sql id="delete" paramType="java.lang.Integer">
+        <![CDATA[
+        DELETE FROM sakila.actor WHERE actor_id = ${value};
+        ]]>
+    </sql>
+
+
+
+</queries>
